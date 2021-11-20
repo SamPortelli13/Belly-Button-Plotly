@@ -100,8 +100,8 @@ d3.json("data/samples.json").then(function(data) {
         // Apply the group bar mode to the layout
         var layout = {
           title: "Top 10 OTUs",
-          height: 700,
-          width: 500,
+          height: 550,
+          width: 400,
           margin: {
             l: 100,
             r: 100,
@@ -114,12 +114,13 @@ d3.json("data/samples.json").then(function(data) {
         Plotly.newPlot("bar", chart_data, layout);
 
         // Display the demographic data
+
         const meta = d3.select("#sample-metadata");    
 
         // Reprint the Demographics details
         Object.keys(demographic_item).forEach((k) => {    
           console.log("adding to table: ",k, demographic_item[k]);    
-          meta.append("p").attr("class", "panel-body").text(`${k}: ${demographic_item[k]}`);         
+          meta.append("p").text(`${k}: ${demographic_item[k]}`);         
         });
         
         //  Render the bubble chart and the guage chart for the ID selected
@@ -163,8 +164,8 @@ function plotBubble(data) {
   var layout = {
     title: 'OTU Samples',
     showlegend: false,
-    height: 500,
-    width: 1200
+    height: 600,
+    width: 1100
   };
   
   Plotly.newPlot('bubble', chart_data, layout);
